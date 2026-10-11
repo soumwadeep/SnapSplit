@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --shadow-card: 0 24px 60px rgba(8, 6, 20, 0.45);
+  --shadow-glow: 0 0 24px rgba(139, 92, 246, 0.35);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(109, 40, 217, 0.18), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(6, 182, 212, 0.12), transparent 50%),
+      #08070f;
+    color: #f5f3ff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+    color: white;
+  }
+
+  input,
+  select,
+  button {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 shadow-card backdrop-blur-xl sm:p-6;
+    animation: rise 0.45s ease both;
+  }
+
+  .card-title {
+    @apply font-display text-2xl tracking-tight text-white;
+  }
+
+  .card-subtitle {
+    @apply mt-1 text-sm leading-relaxed text-violet-100/60;
+  }
+
+  .field {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .field-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-violet-200/50;
+  }
+
+  .field-input {
+    @apply w-full rounded-2xl border border-white/10 bg-white/[0.05] px-3.5 py-2.5 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20;
+  }
+
+  .field-error {
+    @apply text-xs text-rose-300;
+  }
+
+  .field-hint {
+    @apply text-xs text-violet-200/40;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-4 py-2.5 text-sm font-semibold text-[#0b0914] shadow-glow transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold text-violet-50 transition hover:border-white/20 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-rose-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-300;
+  }
+
+  .icon-btn {
+    @apply inline-flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-violet-100/80 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300;
+  }
+
+  .empty-block {
+    @apply rounded-2xl border border-dashed border-white/12 bg-white/[0.02] px-4 py-6 text-center text-sm text-violet-100/50;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.35s ease both;
+}
