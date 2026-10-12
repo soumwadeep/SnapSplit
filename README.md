@@ -1,6 +1,6 @@
 # SnapSplit — Split Bills Smarter
 
-A polished, offline-first bill splitter for dinners, trips, and shared tabs. Built as a complete mini app for the Cursor Challenge: React, Vite, TypeScript, Tailwind CSS, and LocalStorage — no backend.
+A polished, offline-first bill splitter for dinners, trips, and shared tabs. Built as a complete mini app using: React, Vite, TypeScript, Tailwind CSS, and LocalStorage — no backend.
 
 Fair to the last cent. Every personal share is computed in integer cents with Hamilton’s largest-remainder method, so rounded splits always add up to the grand total.
 
